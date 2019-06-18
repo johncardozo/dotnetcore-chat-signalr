@@ -42,7 +42,7 @@ Check the class `Hubs\Chat.cs` in the source code
 
 ## 5. Update Startup.cs registering SignalR services
 
-```cs
+```csharp
 // Import Hub namespace
 using signalr_chat.Hubs;
 
@@ -52,7 +52,7 @@ services.AddSignalR();
 // Update Configure method
 app.UseSignalR (builder =>
 {
-    builder.MapHub <Chat>("/chat");
+    builder.MapHub<Chat>("/chat");
 });
 ```
 
@@ -69,12 +69,12 @@ Update the file `Views\Home\Index.cshtml` with a reference to signalr javascript
 Update the file `Views\Home\Index.cshtml` with the following HTML code:
 
 ```html
-<div class = "signalr-demo" >
-    <form id = "message-form" >
-        <input type = "text" id = "message-box" />
+<div class="signalr-demo">
+    <form id="message-form">
+        <input type="text" id="message-box" />
     </form>
-    <hr / >
-    <ul id = "messages" ></ul>
+    <hr />
+    <ul id="messages"></ul>
 </div>
 ```
 
