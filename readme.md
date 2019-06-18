@@ -22,7 +22,7 @@ To check the package was installed correctly:
 
     dotnet list package
 
-# 3. Install SignalR javascript client
+## 3. Install SignalR javascript client
 
 Execute the following commands in project root folder:
 
@@ -125,7 +125,7 @@ and with the following javascript code:
 
 ## 8. Test the simple chat
 
-Open 2 or more browsers and start typing messages. All opened browsers should now see the messages.
+Open 2 or more browsers and start typing messages. All opened browsers should now show the messages.
 
 # Execution steps
 
