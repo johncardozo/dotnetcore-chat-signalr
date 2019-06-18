@@ -76,7 +76,7 @@ Update the file `Views\Home\Index.cshtml` with the following HTML code:
     <hr / >
     <ul id = "messages" ></ul>
 </div>
-````
+```
 
 and with the following javascript code:
 
@@ -121,7 +121,7 @@ and with the following javascript code:
         messageBox.value = '';
     });
 </script>
-````
+```
 
 ## 8. Test the simple chat
 
