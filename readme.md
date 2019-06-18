@@ -42,7 +42,7 @@ Check the class `Hubs\Chat.cs` in the source code
 
 ## 5. Update Startup.cs registering SignalR services
 
-```c#
+```cs
 // Import Hub namespace
 using signalr_chat.Hubs;
 
