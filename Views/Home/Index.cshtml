@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<script src="~/lib/signalr/signalr.js"></script>
+
+<div class = "signalr-demo" >
+    <form id = "message-form" >
+        <input type = "text" id = "message-box" />
+    </form>
+    <hr / >
+    <ul id = "messages" ></ul>
+</div>
+
+<script>
+    // Reference to page objects
+    const messageForm = document.getElementById('message-form');
+    const messageBox = document.getElementById('message-box');
+    const messages = document.getElementById('messages');
+    
+    // Create a connection
+    const connection = new signalR.HubConnectionBuilder().withUrl( "/chat" )
+        .configureLogging(signalR.LogLevel.Information)
+        .build();
+
+    // Listen for 'newMessage' event
+    connection.on('newMessage', (sender, messageText) => {
+        // Write to browser log
+        console.log(`${sender} : ${ messageText }` );
+        // Create a new <li> element
+        const newMessage = document.createElement ( 'li' );
+        // Add the new <li> element to <ul>
+        newMessage.appendChild (
+            document.createTextNode(`${ sender } : ${ messageText }`));
+            messages.appendChild(newMessage);
+    });
+
+    // Start a connection
+    connection.start()
+        .then(() => console.log('connected!'))
+        .catch(console.error);
+    
+    // Send a new message
+    messageForm.addEventListener('submit', ev => {
+        // Prevent the default behaviour of the form
+        ev.preventDefault();
+        // Get the message typed by user
+        const message = messageBox.value;
+        // Invoke the method SendMessage on the server
+        connection.invoke('SendMessage' , message);
+        // Restart the message box
+        messageBox.value = '';
+    });
+</script>
