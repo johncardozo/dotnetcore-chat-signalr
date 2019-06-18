@@ -62,7 +62,7 @@ Update the file `Views\Home\Index.cshtml` with a reference to signalr javascript
 
 ```html
 <script src="~/lib/signalr/signalr.js"></script>
-````
+```
 
 ## 7. Create a simple page
 
